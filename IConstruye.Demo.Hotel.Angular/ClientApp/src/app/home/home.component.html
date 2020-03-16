@@ -1,0 +1,21 @@
+<form>
+  <div class="searchBoxForm">
+    <input class="searchBox" />
+    <input class="searchBoxSubmit" type="submit" (click)="searchBoxSubmitAPI($event)" value="">
+  </div>
+</form>
+
+
+<p class="sampleText">
+  20 Results
+</p>
+
+<div id="tablaHoteles" *ngFor="let user of users;">
+  <textarea class="box1">{{user.name.first }}</textarea>
+  <textarea class="box2">{{user.email}}</textarea>
+</div>
+
+
+
+
+
