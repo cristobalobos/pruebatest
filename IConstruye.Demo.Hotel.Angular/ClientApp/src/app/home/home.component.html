@@ -10,11 +10,11 @@
   20 Results
 </p>
 
-<div id="tablaHoteles" *ngFor="let user of users;">
-  <textarea class="box1">{{user.name.first }}</textarea>
-  <textarea class="box2">{{user.email}}</textarea>
-</div>
 
+<div *ngFor="let user of users;">
+  <textarea class="box1">{{user.document.hotelName }}</textarea>
+  <textarea class="box2">{{user.document.description }}</textarea>
+</div>
 
 
 

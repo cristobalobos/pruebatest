@@ -25,15 +25,14 @@ namespace IConstruye.Demo.Hotel.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+            //crear politica que permita cualquier origen, metodo y header
             services.AddCors(options =>
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                builder =>
-                {
-                    builder.WithOrigins()
-                    .AllowAnyOrigin();
-                });
-            });
+                options.AddPolicy("CORSAngularPolicy", builder =>
+                    builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                ));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +43,7 @@ namespace IConstruye.Demo.Hotel.Api
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(MyAllowSpecificOrigins);
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseSwagger();
 
@@ -57,6 +56,8 @@ namespace IConstruye.Demo.Hotel.Api
             app.UseRouting();
 
             app.UseAuthorization();
+            //uso de la politica creada
+            app.UseCors("CORSAngularPolicy");
 
             app.UseEndpoints(endpoints =>
             {

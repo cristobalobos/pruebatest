@@ -7,11 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IConstruye.Demo.Hotel.Api.Controllers
 {
+    
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
+    [EnableCors("CORSAngularPolicy")]
     public class HotelsController : ControllerBase
     {
      
@@ -36,6 +40,7 @@ namespace IConstruye.Demo.Hotel.Api.Controllers
 
 
         [HttpGet]
+        [Route("~/api/GetHotel")]
         public IList<SearchResult<Models.Hotel>> Get(string searchText)
         {
             var parameters = new SearchParameters

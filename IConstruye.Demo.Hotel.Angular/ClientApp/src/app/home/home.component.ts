@@ -34,17 +34,18 @@ export class HomeComponent implements OnInit {
         this.userService.getUsers()
             .subscribe(
                 (data) => { // Success
-                    this.users = data['results'];
+                    console.log(data);
+                    this.users = data;
                 },
                 (error) => {
                     console.error(error);
                 }
             );
 
-        /*this.Hotels = [
+        this.Hotels = [
             { HotelName: 'hotel fantansia', Description: 'hotel fantasia puerto varas' },
             { HotelName: 'hotel leones', Description: 'hotel leones puerto montt' },
-        ];     */
+        ];     
        
     }
 
