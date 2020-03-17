@@ -23,9 +23,9 @@ namespace IConstruye.Demo.Hotel.Api.Controllers
         public string SearchText { get; set; }
         public HotelsController()
         {
-   
-            string searchServiceName = config["SearchServiceName"];
-            string queryApiKey = config["SearchServiceQueryApiKey"];
+
+            string searchServiceName = "azs-playground"; //config["SearchServiceName"];
+            string queryApiKey = "EA4510A6219E14888741FCFC19BFBB82"; //config["SearchServiceQueryApiKey"];
 
             // Create a service and index client.
             _serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(queryApiKey));
