@@ -11,6 +11,5 @@ export class UserService {
 
     getUsers() {
         return this.http.get(environment.apiUrl + '/api/GetHotel');
-
     }
 }

@@ -7,33 +7,27 @@ import { UserService } from '../user.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  
+
     Hotels: Array<Object>;
     title = 'demo131';
     users: any[] = [];
 
-    
     constructor(
         protected userService: UserService
     ) {
     }
 
-  onSubmit() {   
-      
-    }
+
 
     ngOnInit() {
-       
     }
 
     searchBoxSubmitAPI(event) {
-        //just added console.log which will display the event details in browser on click of the button.
-        //alert("Boton es click");
-        //console.log(event);
 
+        // evento click
         this.userService.getUsers()
             .subscribe(
-                (data) => { // Success
+                (data) => {
                     console.log(data);
                     this.users = data;
                 },
@@ -41,12 +35,6 @@ export class HomeComponent implements OnInit {
                     console.error(error);
                 }
             );
-
-        this.Hotels = [
-            { HotelName: 'hotel fantansia', Description: 'hotel fantasia puerto varas' },
-            { HotelName: 'hotel leones', Description: 'hotel leones puerto montt' },
-        ];     
-       
     }
 
 }
